@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2462624009459940247}
   - component: {fileID: 2462624009459940241}
   - component: {fileID: 2462624009459940242}
+  - component: {fileID: 680092336}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -142,6 +143,20 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 3000906562780855749, guid: e02e9fb419aea404aaf859b2cec55a6c,
     type: 3}
   Cooldown: 0.5
+--- !u!114 &680092336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2462624009459940244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15a4b48419edef49a135e8baa9b0cf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 10
+  InvencibilityTime: 0.5
 --- !u!1 &2462624009724170446
 GameObject:
   m_ObjectHideFlags: 0
