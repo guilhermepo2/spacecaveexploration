@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour {
     private float m_JumpPressedRemember;
     private float m_GroundedRemember;
     private Mover m_CharacterMover;
+    private Shooter m_CharacterShooter;
 
     private float m_NormalizedHorizontalSpeed = 0.0f;
     private EPlayerState m_CurrentPlayerState = EPlayerState.ENormal;
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour {
         GoingDownGravity = GoingUpGravity * DownGravityMultiplier;
         JumpInitialVelocity = ((2 * JumpPeakHeight * RunSpeed) / HorizontalDistanceToJumpPeak);
         m_CharacterMover = GetComponent<Mover>();
+        m_CharacterShooter = GetComponent<Shooter>();
 
         m_CharacterMover.OnControllerCollidedEvent += OnControllerCollider;
     }
@@ -102,7 +104,18 @@ public class PlayerController : MonoBehaviour {
         ProcessSpriteScale();
         ProcessAnimation();
 
-        if(m_CharacterMover.Velocity.y < 0.0f) {
+        // Shooting has to happen after handling sprite scale
+        if (Input.GetMouseButton(0)) {
+            Vector3 Direction = new Vector3(
+                Mathf.Sign(transform.localScale.x),
+                0.0f, // we can shoot up (for now?!)
+                0.0f
+                );
+
+            m_CharacterShooter.Shoot(Direction);
+        }
+
+        if (m_CharacterMover.Velocity.y < 0.0f) {
             m_Gravity = GoingDownGravity;
             m_CurrentPlayerState = EPlayerState.EJumping;
         }
