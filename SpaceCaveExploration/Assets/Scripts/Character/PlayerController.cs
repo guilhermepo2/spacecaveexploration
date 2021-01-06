@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour {
     public float JumpCutValue = 0.35f;
     public float TerminalVelocity = -25.0f;
     public float DownGravityMultiplier = 3f;
-    private const float JUMP_PRESSED_REMEMBER_TIME = 0.15f;
-    private const float GROUNDED_REMEMBER_TIME = 0.15f;
+    private const float JUMP_PRESSED_REMEMBER_TIME = 0.25f;
+    private const float GROUNDED_REMEMBER_TIME = 0.25f;
 
     private float GoingUpGravity;
     private float GoingDownGravity;
@@ -38,10 +38,10 @@ public class PlayerController : MonoBehaviour {
     private EPlayerState m_CurrentPlayerState = EPlayerState.ENormal;
 
     // ANIMATION NAMES
-    private string IdleAnimation = "Idle";
-    private string StandAnimation = "Stand";
-    private string RunAnimation = "Run";
-    private string JumpAnimation = "Jump";
+    private string IdleAnimation    = "Idle";
+    private string StandAnimation   = "Stand";
+    private string RunAnimation     = "Run";
+    private string JumpAnimation    = "Jump";
 
     private void Awake() {
         GoingUpGravity = (-(2 * JumpPeakHeight * RunSpeed * RunSpeed)) / (HorizontalDistanceToJumpPeak * HorizontalDistanceToJumpPeak);
@@ -75,17 +75,15 @@ public class PlayerController : MonoBehaviour {
         if(m_CharacterMover.IsGrounded) {
             m_GroundedRemember = GROUNDED_REMEMBER_TIME;
             m_CharacterMover.Velocity.y = 0.0f;
-        } else {
-            m_CurrentPlayerState = EPlayerState.EJumping;
         }
 
         switch(m_CurrentPlayerState) {
             case EPlayerState.ENormal:
-                if(m_JumpPressedRemember > 0 && m_GroundedRemember > 0) {
+                if(m_JumpPressedRemember >= 0.0f && m_GroundedRemember >= 0.0f) {
                     m_JumpPressedRemember = 0;
                     m_GroundedRemember = 0;
 
-                    m_GroundedRemember = GoingUpGravity;
+                    m_Gravity = GoingUpGravity;
                     m_CharacterMover.Velocity.y = JumpInitialVelocity;
                     m_CurrentPlayerState = EPlayerState.EJumping;
                 }
@@ -159,6 +157,10 @@ public class PlayerController : MonoBehaviour {
         } else {
             m_Animator.Play(StandAnimation);
         }
+    }
+
+    public bool IsMoving() {
+        return (m_CharacterMover.Velocity.magnitude > 0);
     }
 
 }
