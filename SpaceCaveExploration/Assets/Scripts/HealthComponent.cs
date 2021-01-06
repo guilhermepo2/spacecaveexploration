@@ -6,6 +6,7 @@ public class HealthComponent : MonoBehaviour {
     [Header("Health Configurations")]
     public int MaxHealth;
     private int m_CurrentHealth;
+    public int CurrentHealth { get { return m_CurrentHealth; } }
     public float InvencibilityTime = 0.2f;
     private float m_InvincibilityTimeRemaining;
 
