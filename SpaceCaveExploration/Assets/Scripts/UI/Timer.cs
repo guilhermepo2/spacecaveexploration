@@ -19,7 +19,9 @@ public class Timer : MonoBehaviour {
         TimerText.text = TimeCeil.ToString();
 
         if(TimeCeil <= 0) {
-            OnTimeIsOver();
+            if(OnTimeIsOver != null) {
+                OnTimeIsOver();
+            }
         }
     }
 }
