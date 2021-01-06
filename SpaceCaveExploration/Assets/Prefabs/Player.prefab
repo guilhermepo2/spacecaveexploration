@@ -121,12 +121,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunSpeed: 1.5
   GroundDamping: 10
-  InAirDamping: 1
-  JumpPeakHeight: 2
-  HorizontalDistanceToJumpPeak: 1.25
+  InAirDamping: 5
+  JumpPeakHeight: 1
+  HorizontalDistanceToJumpPeak: 0.9
   JumpCutValue: 0.35
   TerminalVelocity: -10
-  DownGravityMultiplier: 2
+  DownGravityMultiplier: 1.25
 --- !u!114 &2462624009459940242
 MonoBehaviour:
   m_ObjectHideFlags: 0
