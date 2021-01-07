@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour, IHurtable {
     public enum EPlayerState {
         EDummy,
         ENormal,
@@ -43,6 +43,10 @@ public class PlayerController : MonoBehaviour {
     private string RunAnimation     = "Run";
     private string JumpAnimation    = "Jump";
 
+    // footstep sounds
+    private float m_IntervalBetweenFootsteps = 0.35f;
+    private float m_TimeElapsedSinceLastFootstep = 0.0f;
+
     private void Awake() {
         GoingUpGravity = (-(2 * JumpPeakHeight * RunSpeed * RunSpeed)) / (HorizontalDistanceToJumpPeak * HorizontalDistanceToJumpPeak);
         GoingDownGravity = GoingUpGravity * DownGravityMultiplier;
@@ -77,6 +81,15 @@ public class PlayerController : MonoBehaviour {
             m_CharacterMover.Velocity.y = 0.0f;
         }
 
+        // playing footstep sounds
+        m_TimeElapsedSinceLastFootstep += Time.deltaTime;
+        if ( (Mathf.Abs(m_CharacterMover.Velocity.x) > 0.1f) && m_TimeElapsedSinceLastFootstep >= m_IntervalBetweenFootsteps && m_CurrentPlayerState != EPlayerState.EJumping) {
+            Debug.Log("playing player footstep");
+            m_TimeElapsedSinceLastFootstep = 0.0f;
+            int RandomSound = Random.Range(0, SoundBank.instance.PlayerFootsteps.Length);
+            SoundManager.instance.PlayEffect(SoundBank.instance.PlayerFootsteps[RandomSound]);
+        }
+
         switch(m_CurrentPlayerState) {
             case EPlayerState.ENormal:
                 if(m_JumpPressedRemember >= 0.0f && m_GroundedRemember >= 0.0f) {
@@ -86,6 +99,7 @@ public class PlayerController : MonoBehaviour {
                     m_Gravity = GoingUpGravity;
                     m_CharacterMover.Velocity.y = JumpInitialVelocity;
                     m_CurrentPlayerState = EPlayerState.EJumping;
+                    SoundManager.instance.PlayEffect(SoundBank.instance.PlayerJump);
                 }
                 break;
             case EPlayerState.EJumping:
@@ -163,4 +177,13 @@ public class PlayerController : MonoBehaviour {
         return (m_CharacterMover.Velocity.magnitude > 0);
     }
 
+    // Hurtable
+    void IHurtable.Hit() {
+        int RandomSound = Random.Range(0, SoundBank.instance.PlayerHit.Length);
+        SoundManager.instance.PlayEffect(SoundBank.instance.PlayerHit[RandomSound]);
+    }
+
+    void IHurtable.Die() {
+        SoundManager.instance.PlayEffect(SoundBank.instance.PlayerDie);
+    }
 }

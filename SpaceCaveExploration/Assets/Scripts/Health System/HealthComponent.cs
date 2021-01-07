@@ -10,10 +10,12 @@ public class HealthComponent : MonoBehaviour {
     public float InvencibilityTime = 0.2f;
     private float m_InvincibilityTimeRemaining;
     private SpriteRenderer m_SpriteRenderer;
+    private IHurtable m_HurtableReference;
 
 
     private void Awake() {
         m_SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        m_HurtableReference = GetComponent<IHurtable>();
     }
 
     private void Start() {
@@ -30,8 +32,11 @@ public class HealthComponent : MonoBehaviour {
             Debug.Log($"{gameObject.name} taking damage");
 
             m_CurrentHealth -= _Damage;
+            if(m_HurtableReference != null) {
+                m_HurtableReference.Hit();
+            }
 
-            if(m_CurrentHealth <= 0) {
+            if (m_CurrentHealth <= 0) {
                 Die();
             } else {
                 StartCoroutine(InvincibilityFlash());
@@ -54,7 +59,10 @@ public class HealthComponent : MonoBehaviour {
     }
 
     private void Die() {
-        // explode
+        if(m_HurtableReference != null) {
+            m_HurtableReference.Die();
+        }
+
         Destroy(this.gameObject);
     }
 }

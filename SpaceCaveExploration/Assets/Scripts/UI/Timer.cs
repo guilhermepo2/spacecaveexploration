@@ -14,11 +14,16 @@ public class Timer : MonoBehaviour {
     }
 
     private void Update() {
+        if(m_TimeRemaining == 0.0f) {
+            return;
+        }
+
         m_TimeRemaining -= Time.deltaTime;
         int TimeCeil = Mathf.CeilToInt(m_TimeRemaining);
         TimerText.text = TimeCeil.ToString();
 
         if(TimeCeil <= 0) {
+            m_TimeRemaining = 0.0f;
             if(OnTimeIsOver != null) {
                 OnTimeIsOver();
             }

@@ -15,6 +15,7 @@ public class Shooter : MonoBehaviour {
 
     public void Shoot(Vector3 direction) {
         if(m_TimeRemainingToShoot <= 0.0f) {
+            SoundManager.instance.PlayEffect(SoundBank.instance.WeaponShot);
             m_TimeRemainingToShoot = Cooldown;
             Projectile p = Instantiate(ProjectilePrefab, StartingPosition.position, Quaternion.identity).GetComponent<Projectile>();
             p.SetDirection(direction);
