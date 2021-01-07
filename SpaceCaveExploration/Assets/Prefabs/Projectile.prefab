@@ -47,9 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollisionLayers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 768
   TimeToDestroy: 10
   Velocity: 5
+  ImpactPrefab: {fileID: 3149699461911205732, guid: 66445e706f03d80429bd869f27f5f320,
+    type: 3}
 --- !u!58 &1104466187
 CircleCollider2D:
   m_ObjectHideFlags: 0

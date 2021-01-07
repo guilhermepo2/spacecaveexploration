@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour {
     public float Velocity;
     private Vector3 m_Direction;
     private CircleCollider2D m_collider;
+    public GameObject ImpactPrefab;
 
     private void Start() {
         m_collider = GetComponent<CircleCollider2D>();
@@ -32,6 +33,9 @@ public class Projectile : MonoBehaviour {
                 // TODO: Varying damage...
                 _h.DealDamage(1);
             }
+
+            Instantiate(ImpactPrefab, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 
