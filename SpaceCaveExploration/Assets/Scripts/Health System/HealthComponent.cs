@@ -26,6 +26,10 @@ public class HealthComponent : MonoBehaviour {
         m_InvincibilityTimeRemaining -= Time.deltaTime;
     }
 
+    public void Heal(int _Heal) {
+        m_CurrentHealth = Mathf.Clamp(m_CurrentHealth + _Heal, 0, MaxHealth);
+    }
+
     public void DealDamage(int _Damage) {
         if(m_InvincibilityTimeRemaining <= 0.0f) {
             m_InvincibilityTimeRemaining = InvencibilityTime;

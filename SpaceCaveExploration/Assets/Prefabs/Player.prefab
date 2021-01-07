@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 680092336}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55,7 +55,7 @@ MonoBehaviour:
     m_Bits: 256
   TriggerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   OneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   InAirDamping: 5
   JumpPeakHeight: 1
   HorizontalDistanceToJumpPeak: 0.9
-  JumpCutValue: 0.35
+  JumpCutValue: 0.5
   TerminalVelocity: -10
   DownGravityMultiplier: 1.25
 --- !u!114 &2462624009459940242

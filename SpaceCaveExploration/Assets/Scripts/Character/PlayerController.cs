@@ -55,10 +55,15 @@ public class PlayerController : MonoBehaviour, IHurtable {
         m_CharacterShooter = GetComponent<Shooter>();
 
         m_CharacterMover.OnControllerCollidedEvent += OnControllerCollider;
+        m_CharacterMover.OnTriggerEnterEvent += EnteredTrigger;
     }
 
     private void Start() {
         m_Gravity = GoingUpGravity;
+    }
+
+    void EnteredTrigger(Collider2D other) {
+        Debug.Log("Player Entered Trigger...");
     }
 
     void OnControllerCollider(RaycastHit2D hit) {
@@ -84,7 +89,6 @@ public class PlayerController : MonoBehaviour, IHurtable {
         // playing footstep sounds
         m_TimeElapsedSinceLastFootstep += Time.deltaTime;
         if ( (Mathf.Abs(m_CharacterMover.Velocity.x) > 0.1f) && m_TimeElapsedSinceLastFootstep >= m_IntervalBetweenFootsteps && m_CurrentPlayerState != EPlayerState.EJumping) {
-            Debug.Log("playing player footstep");
             m_TimeElapsedSinceLastFootstep = 0.0f;
             int RandomSound = Random.Range(0, SoundBank.instance.PlayerFootsteps.Length);
             SoundManager.instance.PlayEffect(SoundBank.instance.PlayerFootsteps[RandomSound]);
@@ -185,5 +189,13 @@ public class PlayerController : MonoBehaviour, IHurtable {
 
     void IHurtable.Die() {
         SoundManager.instance.PlayEffect(SoundBank.instance.PlayerDie);
+    }
+
+    public void GiveItem(Item.EPossibleItems ItemType) {
+        switch(ItemType) {
+            case Item.EPossibleItems.Health:
+                GetComponent<HealthComponent>().Heal(2);
+                break;
+        }
     }
 }
