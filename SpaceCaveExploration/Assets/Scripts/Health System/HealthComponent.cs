@@ -9,6 +9,7 @@ public class HealthComponent : MonoBehaviour {
     public int CurrentHealth { get { return m_CurrentHealth; } }
     public float InvencibilityTime = 0.2f;
     private float m_InvincibilityTimeRemaining;
+    public bool IsInvincible { get { return m_InvincibilityTimeRemaining > 0.0f; } }
     private SpriteRenderer m_SpriteRenderer;
     private IHurtable m_HurtableReference;
 

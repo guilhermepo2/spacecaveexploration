@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour, IHurtable {
     private float m_GroundedRemember;
     private Mover m_CharacterMover;
     private Shooter m_CharacterShooter;
+    private HealthComponent m_CharacterHealth;
 
     private float m_NormalizedHorizontalSpeed = 0.0f;
     private EPlayerState m_CurrentPlayerState = EPlayerState.ENormal;
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour, IHurtable {
         JumpInitialVelocity = ((2 * JumpPeakHeight * RunSpeed) / HorizontalDistanceToJumpPeak);
         m_CharacterMover = GetComponent<Mover>();
         m_CharacterShooter = GetComponent<Shooter>();
+        m_CharacterHealth = GetComponent<HealthComponent>();
 
         m_CharacterMover.OnControllerCollidedEvent += OnControllerCollider;
         m_CharacterMover.OnTriggerEnterEvent += EnteredTrigger;
@@ -180,7 +182,9 @@ public class PlayerController : MonoBehaviour, IHurtable {
         // cache this reference when the game begins
         Animator m_Animator = GetComponentInChildren<Animator>();
 
-        if(Mathf.Abs(m_CharacterMover.Velocity.y) > Mathf.Epsilon) {
+        if(m_CharacterHealth.IsInvincible) {
+            m_Animator.Play("Hurt");
+        } else if(Mathf.Abs(m_CharacterMover.Velocity.y) > Mathf.Epsilon) {
             m_Animator.Play(JumpAnimation);
         } else if(Mathf.Abs(m_NormalizedHorizontalSpeed) > 0.1f) {
             m_Animator.Play(RunAnimation);
