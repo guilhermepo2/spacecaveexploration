@@ -50,6 +50,7 @@ public class IntroStuff : MonoBehaviour {
 
             while(!PressedToContinue) { SpaceBarThing.SetActive(true); yield return null; }
 
+            SoundManager.instance.PlayEffect(SoundBank.instance.UISelect);
             SpaceBarThing.SetActive(false);
             PressedToContinue = false;
         }

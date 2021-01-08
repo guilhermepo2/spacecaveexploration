@@ -38,14 +38,17 @@ public class MainMenuManager : MonoBehaviour {
         }
 
         if(Input.GetKeyDown(KeyCode.W) && m_CurrentOption == ESelectableOptions.EExit) {
+            SoundManager.instance.PlayEffect(SoundBank.instance.UIMove);
             m_CurrentOption = ESelectableOptions.EPlay;
         }
 
         if(Input.GetKeyDown(KeyCode.S) && m_CurrentOption == ESelectableOptions.EPlay) {
+            SoundManager.instance.PlayEffect(SoundBank.instance.UIMove);
             m_CurrentOption = ESelectableOptions.EExit;
         }
 
         if(Input.GetKeyDown(KeyCode.Return)) {
+            SoundManager.instance.PlayEffect(SoundBank.instance.UISelect);
             if(m_CurrentOption == ESelectableOptions.EPlay) {
                 Play();
             } else if(m_CurrentOption == ESelectableOptions.EExit) {

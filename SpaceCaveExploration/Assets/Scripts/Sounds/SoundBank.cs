@@ -26,6 +26,7 @@ public class SoundBank : MonoBehaviour {
     [Header("UI")]
     public AudioClip UISelect;
     public AudioClip UIBack;
+    public AudioClip UIMove;
     public AudioClip TimeRunningOut;
     public AudioClip GameOver;
 }
