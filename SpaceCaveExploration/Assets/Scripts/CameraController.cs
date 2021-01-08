@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
 
     public float minHeight, maxHeaight;
 
+    public float minWidth, maxWidth;
+
     private Vector2 lastPos;
 
     public bool stopFollowing;
@@ -37,7 +39,7 @@ public class CameraController : MonoBehaviour
 
         if (!stopFollowing)
         {
-            transform.position = new Vector3(target.position.x, Mathf.Clamp(target.position.y, minHeight, maxHeaight), transform.position.z);
+            transform.position = new Vector3(Mathf.Clamp(target.position.x, minWidth, maxWidth), Mathf.Clamp(target.position.y, minHeight, maxHeaight), transform.position.z);
 
 
             Vector2 amountToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y);

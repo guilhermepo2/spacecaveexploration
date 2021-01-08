@@ -46,14 +46,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c02b746c7f8924ca87020fee8b66d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThemeMusic: {fileID: 0}
+  ThemeMusic: {fileID: 8300000, guid: 8eb1399a80787354aa9a23301a4146cc, type: 3}
   PickUpItem: {fileID: 0}
-  PlayerFootsteps: {fileID: 0}
-  PlayerDie: {fileID: 0}
-  PlayerJump: {fileID: 0}
+  PlayerFootsteps:
+  - {fileID: 8300000, guid: 6718c98001a9cc849a8fdfaa4755ded5, type: 3}
+  - {fileID: 8300000, guid: f864d141bd3b02847b45ced2c677c161, type: 3}
+  - {fileID: 8300000, guid: 7930b739d794ebc4597759b8b32fb6f8, type: 3}
+  - {fileID: 8300000, guid: 04d2782e99f338944b37077939e3bd62, type: 3}
+  PlayerHit:
+  - {fileID: 8300000, guid: 4e38a1ee7d8b1af449770f845689ed57, type: 3}
+  - {fileID: 8300000, guid: 42cc2548b9805664c95f3224c5b66250, type: 3}
+  PlayerDie: {fileID: 8300000, guid: 869d9ed6b791f7f43a0bd7661689001a, type: 3}
+  PlayerJump: {fileID: 8300000, guid: 3d58d2ea03a31b148b385ba34b2ef835, type: 3}
   PlayerLand: {fileID: 0}
-  PlayerTakeDamage: {fileID: 0}
-  WeaponShot: {fileID: 0}
+  WeaponShot: {fileID: 8300000, guid: 4d404cdd0aa11ad4bb45cfd615a341f6, type: 3}
   UISelect: {fileID: 0}
   UIBack: {fileID: 0}
   TimeRunningOut: {fileID: 0}
