@@ -3690,6 +3690,47 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4367925277449868837, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367925277449868837, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 54a4af980b738fa44982000f367a744e,
+        type: 2}
+    - target: {fileID: 4367925277449868839, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: PlayerHit.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4367925277449868839, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: PlayerHit.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f904985436c7d274f98d15d36bb1bedd, type: 3}
+    - target: {fileID: 4367925277449868839, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: UISelect
+      value: 
+      objectReference: {fileID: 8300000, guid: 72cf6b63ab789634a97dd35cfdab66c8, type: 3}
+    - target: {fileID: 4367925277449868839, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: UIBack
+      value: 
+      objectReference: {fileID: 8300000, guid: 5f93fa0ecd81d6141b6859b872fe6835, type: 3}
+    - target: {fileID: 4367925277449868839, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: TimeRunningOut
+      value: 
+      objectReference: {fileID: 8300000, guid: 77a6e02518b86614997633de6153fd03, type: 3}
+    - target: {fileID: 4367925277449868839, guid: afa553856d7fa3d4a86f867e3baae213,
+        type: 3}
+      propertyPath: GameOver
+      value: 
+      objectReference: {fileID: 8300000, guid: 4f605ce53ea2f4d4fac6309377812502, type: 3}
     - target: {fileID: 4367925277449868842, guid: afa553856d7fa3d4a86f867e3baae213,
         type: 3}
       propertyPath: m_Name
@@ -18379,6 +18420,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1347870725, guid: 75b3f0ec920502e4295926d7fda55660, type: 3}
+      propertyPath: m_Text
+      value: 9 of 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2085871704, guid: 75b3f0ec920502e4295926d7fda55660, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
@@ -18411,7 +18456,7 @@ PrefabInstance:
     - target: {fileID: 8425447270825498486, guid: 75b3f0ec920502e4295926d7fda55660,
         type: 3}
       propertyPath: LevelTime
-      value: 30
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8425447270825498487, guid: 75b3f0ec920502e4295926d7fda55660,
         type: 3}
@@ -18517,6 +18562,28 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425447271694970293, guid: 75b3f0ec920502e4295926d7fda55660,
+        type: 3}
+      propertyPath: m_Text
+      value: '9999
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425447271694970293, guid: 75b3f0ec920502e4295926d7fda55660,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425447271694970293, guid: 75b3f0ec920502e4295926d7fda55660,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425447271694970293, guid: 75b3f0ec920502e4295926d7fda55660,
+        type: 3}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8642970776107023480, guid: 75b3f0ec920502e4295926d7fda55660,
         type: 3}

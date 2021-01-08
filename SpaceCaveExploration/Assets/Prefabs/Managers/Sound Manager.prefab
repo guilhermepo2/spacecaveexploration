@@ -60,10 +60,11 @@ MonoBehaviour:
   PlayerJump: {fileID: 8300000, guid: 3d58d2ea03a31b148b385ba34b2ef835, type: 3}
   PlayerLand: {fileID: 0}
   WeaponShot: {fileID: 8300000, guid: 4d404cdd0aa11ad4bb45cfd615a341f6, type: 3}
-  UISelect: {fileID: 0}
-  UIBack: {fileID: 0}
-  TimeRunningOut: {fileID: 0}
-  GameOver: {fileID: 0}
+  UISelect: {fileID: 8300000, guid: 72cf6b63ab789634a97dd35cfdab66c8, type: 3}
+  UIBack: {fileID: 8300000, guid: 5f93fa0ecd81d6141b6859b872fe6835, type: 3}
+  UIMove: {fileID: 8300000, guid: 676fb4e2a0e3bfd41ab67348766be92f, type: 3}
+  TimeRunningOut: {fileID: 8300000, guid: 77a6e02518b86614997633de6153fd03, type: 3}
+  GameOver: {fileID: 8300000, guid: 4f605ce53ea2f4d4fac6309377812502, type: 3}
 --- !u!114 &4367925277449868838
 MonoBehaviour:
   m_ObjectHideFlags: 0
