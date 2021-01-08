@@ -77,7 +77,9 @@ public class PlayerController : MonoBehaviour, IHurtable {
     }
 
     void EnteredTrigger(Collider2D other) {
-        // ...
+        if(other.tag == "Enemy") {
+            m_CharacterHealth.DealDamage(1);
+        }
     }
 
     void OnControllerCollider(RaycastHit2D hit) {
@@ -194,7 +196,7 @@ public class PlayerController : MonoBehaviour, IHurtable {
     }
 
     public bool IsMoving() {
-        return (m_CharacterMover.Velocity.magnitude > 0);
+        return (m_CharacterMover.Velocity.magnitude > 0.1f);
     }
 
     // Hurtable
