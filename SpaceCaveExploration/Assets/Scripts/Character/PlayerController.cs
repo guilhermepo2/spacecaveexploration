@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour, IHurtable {
@@ -47,6 +48,17 @@ public class PlayerController : MonoBehaviour, IHurtable {
     private float m_IntervalBetweenFootsteps = 0.35f;
     private float m_TimeElapsedSinceLastFootstep = 0.0f;
 
+    // UI stuff
+    public event Action OnItemCollected;
+    private int m_GreenJarAmount = 0;
+    public int GreenJarCount { get { return m_GreenJarAmount; } }
+    private int m_BlueJarAmount = 0;
+    public int BlueJarCount { get { return m_BlueJarAmount; } }
+    private int m_RedJarAmount = 0;
+    public int RedJarCount { get { return m_RedJarAmount; } }
+    private int m_ChestAmount = 0;
+    public int ChestCount { get { return m_ChestAmount; } }
+
     private void Awake() {
         GoingUpGravity = (-(2 * JumpPeakHeight * RunSpeed * RunSpeed)) / (HorizontalDistanceToJumpPeak * HorizontalDistanceToJumpPeak);
         GoingDownGravity = GoingUpGravity * DownGravityMultiplier;
@@ -63,7 +75,7 @@ public class PlayerController : MonoBehaviour, IHurtable {
     }
 
     void EnteredTrigger(Collider2D other) {
-        Debug.Log("Player Entered Trigger...");
+        // ...
     }
 
     void OnControllerCollider(RaycastHit2D hit) {
@@ -90,7 +102,7 @@ public class PlayerController : MonoBehaviour, IHurtable {
         m_TimeElapsedSinceLastFootstep += Time.deltaTime;
         if ( (Mathf.Abs(m_CharacterMover.Velocity.x) > 0.1f) && m_TimeElapsedSinceLastFootstep >= m_IntervalBetweenFootsteps && m_CurrentPlayerState != EPlayerState.EJumping) {
             m_TimeElapsedSinceLastFootstep = 0.0f;
-            int RandomSound = Random.Range(0, SoundBank.instance.PlayerFootsteps.Length);
+            int RandomSound = UnityEngine.Random.Range(0, SoundBank.instance.PlayerFootsteps.Length);
             SoundManager.instance.PlayEffect(SoundBank.instance.PlayerFootsteps[RandomSound]);
         }
 
@@ -183,7 +195,7 @@ public class PlayerController : MonoBehaviour, IHurtable {
 
     // Hurtable
     void IHurtable.Hit() {
-        int RandomSound = Random.Range(0, SoundBank.instance.PlayerHit.Length);
+        int RandomSound = UnityEngine.Random.Range(0, SoundBank.instance.PlayerHit.Length);
         SoundManager.instance.PlayEffect(SoundBank.instance.PlayerHit[RandomSound]);
     }
 
@@ -192,10 +204,28 @@ public class PlayerController : MonoBehaviour, IHurtable {
     }
 
     public void GiveItem(Item.EPossibleItems ItemType) {
+        Debug.Log($"Player getting item: {ItemType}");
+
         switch(ItemType) {
             case Item.EPossibleItems.Health:
                 GetComponent<HealthComponent>().Heal(2);
                 break;
+            case Item.EPossibleItems.BlueJar:
+                m_BlueJarAmount++;
+                break;
+            case Item.EPossibleItems.GreenJar:
+                m_GreenJarAmount++;
+                break;
+            case Item.EPossibleItems.RedJar:
+                m_RedJarAmount++;
+                break;
+            case Item.EPossibleItems.Chest:
+                m_ChestAmount++;
+                break;
+            default:
+                break;
         }
+
+        OnItemCollected?.Invoke();
     }
 }

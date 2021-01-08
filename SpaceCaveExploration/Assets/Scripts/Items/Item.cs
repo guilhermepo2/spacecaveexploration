@@ -28,8 +28,8 @@ public class Item : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        Debug.Log("Collided!");
         if(collision.gameObject.tag == "Player") {
+            SoundManager.instance.PlayEffect(SoundBank.instance.PickUpItem);
             collision.GetComponent<PlayerController>().GiveItem(ItemType);
             Destroy(this.gameObject);
         }

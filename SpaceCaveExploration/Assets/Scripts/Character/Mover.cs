@@ -89,7 +89,7 @@ public class Mover : MonoBehaviour {
 
         SkinWidth = m_SkinWidth;
         for(int i = 0; i < 32; i++) {
-            if((TriggerMask.value & 1 << 1) == 0) {
+            if((TriggerMask.value & 1 << i) == 0) {
                 Physics2D.IgnoreLayerCollision(gameObject.layer, i);
             }
         }

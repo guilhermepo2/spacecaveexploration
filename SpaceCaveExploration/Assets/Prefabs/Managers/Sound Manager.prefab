@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThemeMusic: {fileID: 8300000, guid: 8eb1399a80787354aa9a23301a4146cc, type: 3}
-  PickUpItem: {fileID: 0}
+  PickUpItem: {fileID: 8300000, guid: c939a7a6320b98b4588fbecf1f31a4b3, type: 3}
   PlayerFootsteps:
   - {fileID: 8300000, guid: 6718c98001a9cc849a8fdfaa4755ded5, type: 3}
   - {fileID: 8300000, guid: f864d141bd3b02847b45ced2c677c161, type: 3}
