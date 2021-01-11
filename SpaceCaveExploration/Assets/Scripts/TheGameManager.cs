@@ -1,9 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class TheGameManager : MonoBehaviour {
+    PlayerController m_PlayerController;
+
     private void Start() {
+        m_PlayerController = FindObjectOfType<PlayerController>();
         FindObjectOfType<Timer>().OnTimeIsOver += GameOverGetGood;
+    }
+
+    private void Update() {
+        // win condition check
+        if(
+            m_PlayerController.BlueJarCount == 3 &&
+            m_PlayerController.GreenJarCount == 3 &&
+            m_PlayerController.RedJarCount == 3
+            ) {
+            FindObjectOfType<Timer>().StopTimer();
+            SceneManager.LoadScene("EndLevel");
+        }
     }
 
     public void GameOverGetGood() {

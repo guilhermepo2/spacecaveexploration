@@ -58,7 +58,7 @@ public class IntroStuff : MonoBehaviour {
         yield return InternalBetweenLetters;
 
         // go to next scene...
-        SceneManager.LoadScene("SampleLevel");
+        SceneManager.LoadScene("Tutorial Level");
     }
 
 }

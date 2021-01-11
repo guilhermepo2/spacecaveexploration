@@ -6,6 +6,8 @@ public class Timer : MonoBehaviour {
     public Text TimerText;
     public float LevelTime = 180;
     private float m_TimeRemaining;
+    private bool m_IsTimerStopped = false;
+    public void StopTimer() { m_IsTimerStopped = true; }
 
     public event Action OnTimeIsOver;
 
@@ -14,7 +16,7 @@ public class Timer : MonoBehaviour {
     }
 
     private void Update() {
-        if(m_TimeRemaining == 0.0f) {
+        if(m_TimeRemaining == 0.0f || m_IsTimerStopped) {
             return;
         }
 
