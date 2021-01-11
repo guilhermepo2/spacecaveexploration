@@ -5051,7 +5051,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 69, y: -32, z: 0}
+  - first: {x: 70, y: -32, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 43
@@ -5060,7 +5060,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 70, y: -32, z: 0}
+  - first: {x: 71, y: -32, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 42
@@ -5258,7 +5258,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 69, y: -31, z: 0}
+  - first: {x: 70, y: -31, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 41
@@ -5267,7 +5267,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 70, y: -31, z: 0}
+  - first: {x: 71, y: -31, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 40
@@ -5465,7 +5465,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 69, y: -30, z: 0}
+  - first: {x: 70, y: -30, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 39
@@ -5474,7 +5474,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 70, y: -30, z: 0}
+  - first: {x: 71, y: -30, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 38
@@ -10259,7 +10259,8 @@ PolygonCollider2D:
     - - {x: 0, y: 2.103416}
       - {x: -1.7957683, y: 2.0920224}
       - {x: -1.797319, y: -3.2962153}
-      - {x: 5.195049, y: -3.2919838}
+      - {x: 7.3822336, y: -3.265946}
+      - {x: 7.1142406, y: -0.6304171}
       - {x: 5.197075, y: 2.1001813}
       - {x: 1.9131742, y: 2.098709}
 --- !u!1 &1503796655
@@ -12963,7 +12964,7 @@ MonoBehaviour:
   minHeight: -2.4
   maxHeaight: 1.75
   minWidth: -0.24
-  maxWidth: 3.61
+  maxWidth: 6.01
   stopFollowing: 0
 --- !u!1 &2071549977
 GameObject:
