@@ -47,7 +47,7 @@ public class MainMenuManager : MonoBehaviour {
             m_CurrentOption = ESelectableOptions.EExit;
         }
 
-        if(Input.GetKeyDown(KeyCode.Return)) {
+        if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)) {
             SoundManager.instance.PlayEffect(SoundBank.instance.UISelect);
             if(m_CurrentOption == ESelectableOptions.EPlay) {
                 Play();
