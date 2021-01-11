@@ -24,7 +24,7 @@ public class IntroStuff : MonoBehaviour {
     private void Start() {
         AdelaideOdyssey.text = "";
         IntroTextRef.text = "";
-        InternalBetweenLetters = new WaitForSeconds(0.1f);
+        InternalBetweenLetters = new WaitForSeconds(0.075f);
         StartCoroutine(PrintText());
         SpaceBarThing.SetActive(false);
     }

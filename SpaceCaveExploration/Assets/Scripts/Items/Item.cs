@@ -10,7 +10,8 @@ public class Item : MonoBehaviour {
         Chest,
         RedJar,
         GreenJar,
-        BlueJar
+        BlueJar,
+        Eskar
     }
     public EPossibleItems ItemType;
 

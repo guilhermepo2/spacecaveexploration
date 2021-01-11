@@ -10,16 +10,10 @@ public class TheGameManager : MonoBehaviour {
         FindObjectOfType<Timer>().OnTimeIsOver += GameOverGetGood;
     }
 
-    private void Update() {
-        // win condition check
-        if(
-            m_PlayerController.BlueJarCount == 3 &&
+    public bool IsWinConditionMet() {
+        return (m_PlayerController.BlueJarCount == 3 &&
             m_PlayerController.GreenJarCount == 3 &&
-            m_PlayerController.RedJarCount == 3
-            ) {
-            FindObjectOfType<Timer>().StopTimer();
-            SceneManager.LoadScene("EndLevel");
-        }
+            m_PlayerController.RedJarCount == 3);
     }
 
     public void GameOverGetGood() {

@@ -228,6 +228,9 @@ public class PlayerController : MonoBehaviour, IHurtable {
             case Item.EPossibleItems.Chest:
                 m_ChestAmount++;
                 break;
+            case Item.EPossibleItems.Eskar:
+                FindObjectOfType<EndLevelUI>().GotChest();
+                break;
             default:
                 break;
         }
